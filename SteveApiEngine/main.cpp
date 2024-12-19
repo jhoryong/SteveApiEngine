@@ -4,11 +4,10 @@
 #include "framework.h"
 #include "SteveApiEngine.h"
 #include "../SteveApiEngine_SOURCE/App.h"
-
-
-
 #define MAX_LOADSTRING 100
-App app;
+
+steve::App app;
+
 // Global Variables:
 HINSTANCE hInst;                                // current instance
 WCHAR szTitle[MAX_LOADSTRING];                  // The title bar text
@@ -35,7 +34,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     LoadStringW(hInstance, IDC_STEVEAPIENGINE, szWindowClass, MAX_LOADSTRING);
     MyRegisterClass(hInstance);
 
-    app.test();
     // Perform application initialization:
     if (!InitInstance (hInstance, nCmdShow))
     {
@@ -47,12 +45,32 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     MSG msg;
 
     // Main message loop:
-    while (GetMessage(&msg, nullptr, 0, 0))
+    /*while (GetMessage(&msg, nullptr, 0, 0))
     {
         if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
         {
             TranslateMessage(&msg);
             DispatchMessage(&msg);
+        }
+    }*/
+    while (true)
+    {
+        // 메세지가 있는 경우
+        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
+        {
+            if (msg.message == WM_QUIT)
+                break;
+
+            if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+            {
+                TranslateMessage(&msg);
+                DispatchMessage(&msg);
+            }
+        }
+        // 메세지가 없는 경우
+        else
+        {
+            app.Run();
         }
     }
 
@@ -103,6 +121,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+
+   app.Initialize(hWnd);
 
    if (!hWnd)
    {
