@@ -5,6 +5,10 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SteveApiEngine", "SteveApiEngine\SteveApiEngine.vcxproj", "{C819DFA0-99B1-496D-9D10-9C32FD10C040}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SteveApiEngine_SOURCE", "SteveApiEngine_SOURCE\SteveApiEngine_SOURCE.vcxitems", "{C6BD6B2C-6384-437E-B63B-A8F78D3B4BDD}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SteveApiEngine_Window", "SteveApiEngine_Window\SteveApiEngine_Window.vcxproj", "{6E8A3380-0169-4D33-9B72-F273BB802E10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,11 +25,23 @@ Global
 		{C819DFA0-99B1-496D-9D10-9C32FD10C040}.Release|x64.Build.0 = Release|x64
 		{C819DFA0-99B1-496D-9D10-9C32FD10C040}.Release|x86.ActiveCfg = Release|Win32
 		{C819DFA0-99B1-496D-9D10-9C32FD10C040}.Release|x86.Build.0 = Release|Win32
+		{6E8A3380-0169-4D33-9B72-F273BB802E10}.Debug|x64.ActiveCfg = Debug|x64
+		{6E8A3380-0169-4D33-9B72-F273BB802E10}.Debug|x64.Build.0 = Debug|x64
+		{6E8A3380-0169-4D33-9B72-F273BB802E10}.Debug|x86.ActiveCfg = Debug|Win32
+		{6E8A3380-0169-4D33-9B72-F273BB802E10}.Debug|x86.Build.0 = Debug|Win32
+		{6E8A3380-0169-4D33-9B72-F273BB802E10}.Release|x64.ActiveCfg = Release|x64
+		{6E8A3380-0169-4D33-9B72-F273BB802E10}.Release|x64.Build.0 = Release|x64
+		{6E8A3380-0169-4D33-9B72-F273BB802E10}.Release|x86.ActiveCfg = Release|Win32
+		{6E8A3380-0169-4D33-9B72-F273BB802E10}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D9004EBE-DDE5-4D52-88A5-3B039896D0D4}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SteveApiEngine_SOURCE\SteveApiEngine_SOURCE.vcxitems*{6e8a3380-0169-4d33-9b72-f273bb802e10}*SharedItemsImports = 4
+		SteveApiEngine_SOURCE\SteveApiEngine_SOURCE.vcxitems*{c6bd6b2c-6384-437e-b63b-a8f78d3b4bdd}*SharedItemsImports = 9
 	EndGlobalSection
 EndGlobal

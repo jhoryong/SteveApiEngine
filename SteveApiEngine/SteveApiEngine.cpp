@@ -3,9 +3,12 @@
 
 #include "framework.h"
 #include "SteveApiEngine.h"
+#include "../SteveApiEngine_SOURCE/App.h"
+
+
 
 #define MAX_LOADSTRING 100
-
+App app;
 // Global Variables:
 HINSTANCE hInst;                                // current instance
 WCHAR szTitle[MAX_LOADSTRING];                  // The title bar text
@@ -32,6 +35,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     LoadStringW(hInstance, IDC_STEVEAPIENGINE, szWindowClass, MAX_LOADSTRING);
     MyRegisterClass(hInstance);
 
+    app.test();
     // Perform application initialization:
     if (!InitInstance (hInstance, nCmdShow))
     {
@@ -142,7 +146,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             }
         }
         break;
-    case WM_VSCROLL:
+   /* case WM_VSCROLL:
         DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
         break;
     case WM_MOVE:
@@ -153,7 +157,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         break;
     case WM_MENUSELECT:
         DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
-        break;
+        break;*/
     ///*case WM_SETFOCUS:
     //    DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
     //    break;*/
@@ -162,6 +166,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
             // TODO: Add any drawing code that uses hdc here...
+
+            Rectangle(hdc, 100, 100, 200, 200);
+            HBRUSH blueBrush = CreateSolidBrush(RGB(0, 0, 255));
+            HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, blueBrush);
+            Rectangle(hdc, 200, 200, 300, 300);
+            SelectObject(hdc, oldBrush);
+            DeleteObject(blueBrush);
+
             EndPaint(hWnd, &ps);
         }
         break;
