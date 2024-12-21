@@ -1,5 +1,6 @@
 #pragma once
 #include "CommonInclude.h"
+#include "GameObject.h"
 namespace steve
 {
 	class App
@@ -16,8 +17,6 @@ namespace steve
 		HWND mHwnd;
 		HDC mHdc;
 
-		float mSpeed;
-		float mX;
-		float mY;
+		GameObject mPlayer;
 	};
 }
