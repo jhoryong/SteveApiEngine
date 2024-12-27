@@ -4,7 +4,7 @@
 steve::GameObject::GameObject():
 								mX(0.f), 
 								mY(0.f), 
-								mSpeed(0.f)
+								mSpeed(5.f)
 {
 }
 
@@ -16,19 +16,19 @@ void steve::GameObject::Update()
 {
 	if (Input::GetKey(eKeyCode::A) || Input::GetKey(eKeyCode::Left))
 	{
-		mX -= 0.01f;
+		mX -= mSpeed;
 	}
 	if (Input::GetKey(eKeyCode::D) || Input::GetKey(eKeyCode::Right))
 	{
-		mX += 0.01f;
+		mX += mSpeed;
 	}
 	if (Input::GetKey(eKeyCode::W) || Input::GetKey(eKeyCode::Up))
 	{
-		mY -= 0.01f;
+		mY -= mSpeed;
 	}
 	if (Input::GetKey(eKeyCode::S) || Input::GetKey(eKeyCode::Down))
 	{
-		mY += 0.01f;
+		mY += mSpeed;
 	}
 }
 
