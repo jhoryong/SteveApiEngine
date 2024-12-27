@@ -1,6 +1,10 @@
 #include "GameObject.h"
+#include "Input.h"
 
-steve::GameObject::GameObject()
+steve::GameObject::GameObject():
+								mX(0.f), 
+								mY(0.f), 
+								mSpeed(0.f)
 {
 }
 
@@ -10,24 +14,19 @@ steve::GameObject::~GameObject()
 
 void steve::GameObject::Update()
 {
-	mSpeed += 0.01f;
-	// 내가 오른 키를 입력받았다면
-	// x 좌표가 플러스
-	// 왼쪽 -> x 가 마이너스
-	// 위아래는 y가 플러스 마이너스
-	if (GetAsyncKeyState(VK_LEFT) & 0x8000)
+	if (Input::GetKey(eKeyCode::A))
 	{
 		mX -= 0.01f;
 	}
-	if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
+	if (Input::GetKey(eKeyCode::D))
 	{
 		mX += 0.01f;
 	}
-	if (GetAsyncKeyState(VK_UP) & 0x8000)
+	if (Input::GetKey(eKeyCode::W))
 	{
 		mY -= 0.01f;
 	}
-	if (GetAsyncKeyState(VK_DOWN) & 0x8000)
+	if (Input::GetKey(eKeyCode::S))
 	{
 		mY += 0.01f;
 	}

@@ -1,5 +1,5 @@
 #include "App.h"
-
+#include "Input.h"
 namespace steve
 {
 	App::App()
@@ -14,6 +14,7 @@ namespace steve
 	{
 		mHwnd = hwnd;
 		mHdc = GetDC(hwnd);
+		Input::Initialize();
 	}
 	void App::Run()
 	{
@@ -24,6 +25,7 @@ namespace steve
 	void App::Update()
 	{
 		mPlayer.Update();
+		Input::Update();
 	}
 	void App::LateUpdate()
 	{
