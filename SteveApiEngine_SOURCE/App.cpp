@@ -24,8 +24,8 @@ namespace steve
 	}
 	void App::Update()
 	{
-		mPlayer.Update();
 		Input::Update();
+		mPlayer.Update();
 	}
 	void App::LateUpdate()
 	{
