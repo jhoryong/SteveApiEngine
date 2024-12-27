@@ -13,6 +13,12 @@ namespace steve
 		void Update();
 		void LateUpdate();
 		void Render();
+
+	private:
+		void adjustWindowRect(HWND hwnd, UINT width, UINT height);
+		void createBuffer(UINT width, UINT height);
+		void initializeManagers();
+
 	private:
 		HWND mHwnd;
 		HDC mHdc;
