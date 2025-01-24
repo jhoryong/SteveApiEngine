@@ -1,6 +1,7 @@
 #include "App.h"
 #include "Input.h"
 #include "Time.h"
+#include "SceneManager.h"
 namespace steve
 {
 	App::App()
@@ -20,6 +21,7 @@ namespace steve
 		adjustWindowRect(hwnd, width, height);
 		createBuffer(width, height);
 		initializeManagers();
+		SceneManager::Initialize();
 	}
 	void App::Run()
 	{
@@ -31,22 +33,32 @@ namespace steve
 	{
 		Input::Update();
 		Time::Update();
-		mPlayer.Update();
+		SceneManager::Update();
 	}
 	void App::LateUpdate()
 	{
-		mPlayer.LateUpdate();
 	}
 	void App::Render()
 	{
-		Rectangle(mBackHdc, 0, 0, 1600, 900);
+		clearRenderTarget();
 
 		Time::Render(mBackHdc);
-		mPlayer.Render(mBackHdc);
+		SceneManager::Render(mBackHdc);
 
+		copyRenderTarget(mBackHdc, mHdc);
+	}
+
+	void App::clearRenderTarget()
+	{
+		//clear
+		Rectangle(mBackHdc, -1, -1, 1601, 901);
+	}
+
+	void App::copyRenderTarget(HDC source, HDC dest)
+	{
 		// BackBuffer 에 있는걸 원본 Buffer 에 복사(그려준다)
-		BitBlt(mHdc, 0, 0, mWidth, mHeight,
-			mBackHdc, 0, 0, SRCCOPY);
+		BitBlt(dest, 0, 0, mWidth, mHeight,
+			source, 0, 0, SRCCOPY);
 	}
 
 	void App::adjustWindowRect(HWND hwnd, UINT width, UINT height)

@@ -7,6 +7,11 @@ namespace steve
 	public:
 		static void Initialize();
 		static void Update();
+		/*
+		@param hdc - labd
+		@param abc - asdf;
+		@returns result
+		*/
 		static void Render(HDC hdc);
 		static float DeltaTime() { return DeltaTimeValue; }
 

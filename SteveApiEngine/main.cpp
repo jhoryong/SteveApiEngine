@@ -4,6 +4,7 @@
 #include "framework.h"
 #include "SteveApiEngine.h"
 #include "../SteveApiEngine_SOURCE/App.h"
+#include "../SteveApiEngine_Window/LoadScenes.h"
 #define MAX_LOADSTRING 100
 
 // Global Variables:
@@ -132,6 +133,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   steve::LoadScenes();
 
    return TRUE;
 }
