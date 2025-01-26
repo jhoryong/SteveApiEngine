@@ -37,6 +37,7 @@ namespace steve
 	}
 	void App::LateUpdate()
 	{
+		SceneManager::LateUpdate();
 	}
 	void App::Render()
 	{

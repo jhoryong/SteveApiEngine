@@ -18,6 +18,7 @@ namespace steve
 		T* AddComponent()
 		{
 			T* comp = new T();
+			comp->Initialize();
 			comp->SetOwner(this);
 			mComponents.push_back(comp);
 
@@ -26,9 +27,11 @@ namespace steve
 		template <typename T>
 		T* GetComponent()
 		{
+			mComponents;
 			T* component = nullptr;
 			for (Component* comp : mComponents)
 			{
+
 				component = dynamic_cast<T*>(comp);
 				if (component) break;
 			}

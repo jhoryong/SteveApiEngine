@@ -2,8 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)App.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Input.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Time.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SpriteRenderer.cpp">
       <Filter>Component</Filter>
     </ClCompile>
@@ -25,15 +23,21 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)SceneManager.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)steveMath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Resource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Resources.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Input.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Time.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)steveMath.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Layer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)App.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Input.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Time.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SpriteRenderer.h">
       <Filter>Component</Filter>
     </ClInclude>
@@ -55,9 +59,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)SceneManager.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)steveMath.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Resource.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Resources.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Component">
@@ -68,6 +69,15 @@
     </Filter>
     <Filter Include="Scene">
       <UniqueIdentifier>{9a73bc9f-4887-497f-89b2-b80ab8b212e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{cdd53112-cefb-4766-bc09-609e1087b1ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{fb19c56c-b32a-415e-a7b6-dc129023966b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Helper">
+      <UniqueIdentifier>{dbb2b93b-8905-40d4-b04e-2bfe64c7640b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

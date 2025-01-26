@@ -1,4 +1,5 @@
 #include "SceneManager.h"
+
 namespace steve
 {
 	std::map<std::wstring, Scene*> SceneManager::mScene = {};

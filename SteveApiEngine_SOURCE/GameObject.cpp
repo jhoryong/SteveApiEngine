@@ -1,7 +1,7 @@
 #include "GameObject.h"
 #include "Input.h"
 
-steve::GameObject::GameObject()
+steve::GameObject::GameObject() : mComponents{}
 {
 }
 
