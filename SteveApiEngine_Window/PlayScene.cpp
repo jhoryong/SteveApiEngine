@@ -20,13 +20,21 @@ void steve::PlayScene::Initialize()
 		obj->SetPosition(rand() % 1600, rand() % 900);
 		AddGameObject(obj);
 	}*/
-	Player* player = new Player();
+	/*Player* player = new Player();
 	Transform* transform = player->AddComponent<Transform>();
 	transform->SetPos(800, 450);
 	transform->SetName(L"Transform");
 	SpriteRenderer* spriteRenderer = player->AddComponent<SpriteRenderer>();
 	spriteRenderer->SetName(L"SpriteRenderer");
-	AddGameObject(player);
+	AddGameObject(player);*/
+	Player* bg = new Player();
+	Transform* tr = bg->AddComponent<Transform>();
+	tr->SetPos(Vector2(0, 0));
+	tr->SetName(L"TR");
+	SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
+	sr->SetName(L"SR");
+	sr->ImageLoad(L"../Resources/gura.jpeg");
+	AddGameObject(bg);
 }
 
 void steve::PlayScene::Update()

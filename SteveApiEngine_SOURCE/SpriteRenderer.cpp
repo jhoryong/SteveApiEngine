@@ -3,6 +3,9 @@
 #include "Transform.h"
 
 steve::SpriteRenderer::SpriteRenderer()
+	: mImage(nullptr)
+	, mWidth(0)
+	, mHeight(0)
 {
 }
 
@@ -24,22 +27,16 @@ void steve::SpriteRenderer::LateUpdate()
 
 void steve::SpriteRenderer::Render(HDC hdc)
 {
-	//파랑 브러쉬 생성
-	HBRUSH blueBrush
-		= CreateSolidBrush(RGB(255, 0, 255));
+	// transform component 를 가져와서 위치값을 구한 뒤 리소스를 그린다.
+	Transform* tr = GetOwner()->GetComponent<Transform>();
+	Vector2 pos = tr->GetPosition();
+	Gdiplus::Graphics graphics(hdc);
+	graphics.DrawImage(mImage, Gdiplus::Rect(pos.x, pos.y, mWidth, mHeight));
+}
 
-	// 파랑 브러쉬 DC에 선택 그리고 흰색 브러쉬 반환값 반환
-	HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, blueBrush);
-
-	HPEN redPen = CreatePen(PS_SOLID, 2, RGB(rand() % 255, rand() % 255, rand() % 255));
-	HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
-	SelectObject(hdc, oldPen);
-
-	Transform* tr = GetOwner()->GetComponent<Transform>(); 
-	Rectangle(hdc, tr->GetX(), tr->GetY()
-		, 100 + tr->GetX(), 100 + tr->GetY());
-
-	SelectObject(hdc, oldBrush);
-	DeleteObject(blueBrush);
-	DeleteObject(redPen);
+void steve::SpriteRenderer::ImageLoad(const std::wstring& path)
+{
+	mImage = Gdiplus::Image::FromFile(path.c_str());
+	mWidth = mImage->GetWidth();
+	mHeight = mImage->GetHeight();
 }

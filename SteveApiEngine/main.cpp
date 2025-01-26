@@ -6,7 +6,8 @@
 #include "../SteveApiEngine_SOURCE/App.h"
 #include "../SteveApiEngine_Window/LoadScenes.h"
 #define MAX_LOADSTRING 100
-
+ULONG_PTR gpToken;
+Gdiplus::GdiplusStartupInput gpsi;
 // Global Variables:
 steve::App app;
 HINSTANCE hInst;                                // current instance
@@ -74,6 +75,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         }
     }
 
+    Gdiplus::GdiplusShutdown(gpToken);
+
     return (int) msg.wParam;
 }
 
@@ -129,6 +132,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    const UINT width = 1600;
    const UINT height = 900;
+   Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
    app.Initialize(hWnd, width, height);
 
    ShowWindow(hWnd, nCmdShow);
