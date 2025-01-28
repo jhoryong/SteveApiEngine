@@ -38,6 +38,8 @@ namespace steve
 			return component;
 		}
 	private:
+		void InitializeTransform();
+	private:
 		std::vector<Component*> mComponents;
 	};
 

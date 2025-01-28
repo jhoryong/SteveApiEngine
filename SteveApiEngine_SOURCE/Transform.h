@@ -4,7 +4,7 @@
 
 namespace steve
 {
-	using namespace Math;
+	using namespace math;
 	struct Pos
 	{
 		int mX;
@@ -22,7 +22,7 @@ namespace steve
 		void LateUpdate()  override;
 		void Render(HDC hdc)  override;
 
-		void SetPos(Vector2 pos) { mPosition.x = pos.x; mPosition.y = pos.y; }
+		void SetPosition(Vector2 pos) { mPosition.x = pos.x; mPosition.y = pos.y; }
 		Vector2 GetPosition() { return mPosition; }
 
 	private:

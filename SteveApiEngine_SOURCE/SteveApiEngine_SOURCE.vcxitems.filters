@@ -31,10 +31,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Time.cpp">
       <Filter>Helper</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)steveMath.cpp">
-      <Filter>Utils</Filter>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Layer.cpp">
+      <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)Layer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)App.h" />
@@ -58,6 +57,29 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)SceneManager.h">
       <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Resource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Resources.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Time.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Input.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)steveMath.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Enums.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Layer.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Object.h">
+      <Filter>GameObject</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

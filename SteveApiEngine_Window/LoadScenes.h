@@ -11,6 +11,6 @@ namespace steve
 		SceneManager::CreateScene<PlayScene>(L"PlayScene");
 		//SceneManager::CreateScene<EndScene>(L"EndScene");
 
-		SceneManager::LoadScene(L"PlayScene");
+		SceneManager::LoadScene(L"TitleScene");
 	}
 }

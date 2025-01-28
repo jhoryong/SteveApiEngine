@@ -22,6 +22,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Input.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Layer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Object.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)steveMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Resource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Resources.h" />
@@ -38,7 +39,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Input.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Layer.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)steveMath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Resource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Resources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene.cpp" />

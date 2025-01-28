@@ -3,7 +3,7 @@
 
 namespace steve
 {
-	namespace Math
+	namespace math
 	{
 		struct Vector2
 		{
@@ -20,7 +20,6 @@ namespace steve
 				: x(_x)
 				, y(_y)
 			{
-
 			}
 
 

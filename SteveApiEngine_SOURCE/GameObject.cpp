@@ -1,8 +1,9 @@
 #include "GameObject.h"
 #include "Input.h"
-
+#include "Transform.h"
 steve::GameObject::GameObject() : mComponents{}
 {
+	InitializeTransform();
 }
 
 steve::GameObject::~GameObject()
@@ -44,4 +45,10 @@ void steve::GameObject::Render(HDC hdc)
 	{
 		comp->Render(hdc);
 	}
+}
+
+
+void steve::GameObject::InitializeTransform()
+{
+	AddComponent<Transform>();
 }

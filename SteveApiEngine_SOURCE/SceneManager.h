@@ -9,26 +9,16 @@ namespace steve
 		static Scene* CreateScene(const std::wstring& name)
 		{
 			T* scene = new T();
+			mActiveScene = scene;
 			scene->SetName(name);
 			scene->Initialize();
-
 			mScene.insert(std::make_pair(name, scene));
 
 			return scene;
 		}
-		static Scene* LoadScene(const std::wstring& name)
-		{
-			if (mActiveScene)
-				mActiveScene->OnExit();
-			std::map<std::wstring, Scene*>::iterator iter = mScene.find(name);
 
-			if (iter == mScene.end()) return nullptr;
-
-			mActiveScene = iter->second;
-			mActiveScene->OnEnter();
-
-			return mActiveScene;
-		}
+		static Scene* LoadScene(const std::wstring& name);
+		static Scene* GetActiveScene() { return mActiveScene; }
 
 		static void Initialize();
 		static void Update();
