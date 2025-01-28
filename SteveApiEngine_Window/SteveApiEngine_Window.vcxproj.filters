@@ -27,6 +27,9 @@
     <ClInclude Include="TitleScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="LoadResources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PlayScene.cpp">

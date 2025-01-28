@@ -5,6 +5,7 @@
 #include "SteveApiEngine.h"
 #include "../SteveApiEngine_SOURCE/App.h"
 #include "../SteveApiEngine_Window/LoadScenes.h"
+#include "../SteveApiEngine_Window/LoadResources.h"
 #define MAX_LOADSTRING 100
 ULONG_PTR gpToken;
 Gdiplus::GdiplusStartupInput gpsi;
@@ -138,6 +139,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
 
+   steve::LoadResources();
    steve::LoadScenes();
 
    return TRUE;

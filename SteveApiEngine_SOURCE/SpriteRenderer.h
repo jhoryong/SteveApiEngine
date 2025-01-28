@@ -1,6 +1,7 @@
 #pragma once
 #include "Entity.h"
 #include "Component.h"
+#include "Texture.h"
 namespace steve
 {
 	class SpriteRenderer: public Component
@@ -16,10 +17,12 @@ namespace steve
 
 		void ImageLoad(const std::wstring& path);
 
+		void SetTexture(graphics::Texture* texture) { mTexture = texture; }
+		void SetSize(math::Vector2 size) { mSize = size;  }
+
 	private:
-		Gdiplus::Image* mImage;
-		UINT mWidth;
-		UINT mHeight;
+		graphics::Texture* mTexture;
+		math::Vector2 mSize;
 	};
 }
 

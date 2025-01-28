@@ -6,6 +6,8 @@
 #include "Input.h"
 #include "SceneManager.h"
 #include "Object.h"
+#include "Texture.h"
+#include "ResourceManager.h"
 
 namespace steve
 {
@@ -20,9 +22,11 @@ namespace steve
 
 	void PlayScene::Initialize()
 	{
+		//게임오브젝트 만들기전에 리소스들 전부 Load해두면 좋다.
 		bg = object::Instantiate<Player>(enums::eLayerType::BackGround, Vector2(100.f, 100.f));
 		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
-		sr->ImageLoad(L"../Resources/gura.jpeg");
+		graphics::Texture* bg = ResourceManager::Find<graphics::Texture>(L"BG");
+		sr->SetTexture(bg);
 		// 게임 오브젝트 생성후에 레이어와 게임오브젝트들의 init함수를 호출
 		Scene::Initialize();
 	}

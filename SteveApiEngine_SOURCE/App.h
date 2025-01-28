@@ -14,6 +14,8 @@ namespace steve
 		void LateUpdate();
 		void Render();
 
+		HDC getHdc() { return mHdc; }
+
 	private:
 		void clearRenderTarget();
 		void copyRenderTarget(HDC source, HDC dest);
