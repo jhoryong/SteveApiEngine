@@ -1,8 +1,8 @@
 #pragma once
-namespace steve
+namespace steve::enums
 {
-	namespace enums
-	{
+	//namespace enums
+	//{
 		enum class eLayerType
 		{
 			None,
@@ -20,5 +20,5 @@ namespace steve
 			Prefab,
 			End
 		};
-	}
+	//}
 }
