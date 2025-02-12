@@ -2,7 +2,7 @@
 #include "Resource.h"
 namespace steve
 {
-	class ResourceManager
+	class Resources
 	{
 	public:
 		template <typename T>
@@ -15,7 +15,7 @@ namespace steve
 		template <typename T>
 		static T* Load(const std::wstring& key, const std::wstring& path)
 		{
-			T* resource = ResourceManager::Find<T>(key);
+			T* resource = Resources::Find<T>(key);
 			if (resource != nullptr)
 				return resource;
 

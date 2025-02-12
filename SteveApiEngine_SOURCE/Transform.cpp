@@ -1,6 +1,7 @@
 #include "Transform.h"
 
 steve::Transform::Transform()
+	: Component(enums::eComponentType::Transform)
 {
 }
 

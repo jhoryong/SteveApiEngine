@@ -5,7 +5,7 @@ namespace steve {
 	class Component : public Entity
 	{
 	public:
-		Component();
+		Component(enums::eComponentType type);
 		~Component();
 
 		virtual void Initialize();
@@ -13,9 +13,15 @@ namespace steve {
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
 		void SetOwner(GameObject* owner) { mOwner = owner; }
-		GameObject* GetOwner() { return mOwner; }
+		GameObject* GetOwner() { 
+			return mOwner; 
+		}
+		enums::eComponentType GetType() { 
+			return mType; 
+		}
 	private:
 		GameObject* mOwner;
+		enums::eComponentType mType;
 	};
 }
 

@@ -1,8 +1,8 @@
 #pragma once
-namespace steve::enums
+namespace steve
 {
-	//namespace enums
-	//{
+	namespace enums
+	{
 		enum class eLayerType
 		{
 			None,
@@ -20,5 +20,14 @@ namespace steve::enums
 			Prefab,
 			End
 		};
-	//}
+
+		enum class eComponentType
+		{
+			Transform,
+			SpriteRenderer,
+			Script,
+			Camera,
+			End,
+		};
+	};
 }

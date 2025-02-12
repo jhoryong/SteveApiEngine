@@ -16,14 +16,6 @@ void steve::Player::Update()
 void steve::Player::LateUpdate()
 {
 	GameObject::LateUpdate();
-
-	if (Input::GetKey(eKeyCode::Right))
-	{
-		Transform* tr = GetComponent<Transform>();
-		Vector2 pos = tr->GetPosition();
-		pos.x += 100.0f * Time::DeltaTime();
-		tr->SetPosition(pos);
-	}
 }
 
 void steve::Player::Render(HDC hdc)

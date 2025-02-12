@@ -1,6 +1,7 @@
 #include "Component.h"
 
-steve::Component::Component()
+steve::Component::Component(enums::eComponentType type)
+	:mType(type)
 {
 }
 

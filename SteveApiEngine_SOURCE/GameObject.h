@@ -20,14 +20,14 @@ namespace steve
 			T* comp = new T();
 			comp->Initialize();
 			comp->SetOwner(this);
-			mComponents.push_back(comp);
+			UINT compType = (UINT)comp->GetType();
+			mComponents[compType] = comp;
 
 			return comp;
 		}
 		template <typename T>
 		T* GetComponent()
 		{
-			mComponents;
 			T* component = nullptr;
 			for (Component* comp : mComponents)
 			{
