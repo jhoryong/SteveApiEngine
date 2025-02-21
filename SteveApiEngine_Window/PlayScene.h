@@ -1,5 +1,5 @@
 #pragma once
-#include "../SteveApiEngine_SOURCE//Scene.h"
+#include "../SteveApiEngine_SOURCE/Scene.h"
 //#include "Scene.h"
 namespace steve{
 	class PlayScene : public Scene

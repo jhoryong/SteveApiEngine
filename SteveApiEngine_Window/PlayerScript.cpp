@@ -8,7 +8,7 @@
 namespace steve
 {
 	PlayerScript::PlayerScript()
-		: mState(PlayerScript::eState::SitDown)
+		: mState(PlayerScript::eState::Idle)
 		, mAnimator(nullptr)
 	{
 	}
@@ -27,8 +27,8 @@ namespace steve
 
 		switch (mState)
 		{
-		case PlayerScript::eState::SitDown:
-			sitDown();
+		case PlayerScript::eState::Idle:
+			idle();
 			break;
 		case PlayerScript::eState::Walk:
 			move();
@@ -37,6 +37,9 @@ namespace steve
 		case PlayerScript::eState::Sleep:
 			break;
 		case PlayerScript::eState::Attack:
+			break;
+		case PlayerScript::eState::GiveWater:
+			giveWater();
 			break;
 		default:
 			break;
@@ -49,19 +52,15 @@ namespace steve
 	{
 	}
 
-	void PlayerScript::sitDown()
+	void PlayerScript::idle()
 	{
-		if (Input::GetKey(eKeyCode::D))
+		if (Input::GetKey(eKeyCode::LButton))
 		{
-			mState = PlayerScript::eState::Walk;
-			mAnimator->PlayAnimation(L"RightWalk");
+			mState = PlayerScript::eState::GiveWater;
+			mAnimator->PlayAnimation(L"FrontGiveWater", false);
+
+			Vector2 mousePos = Input::GetMousePosition();
 		}
-		if (Input::GetKey(eKeyCode::A))
-			mState = PlayerScript::eState::Walk;
-		if (Input::GetKey(eKeyCode::W))
-			mState = PlayerScript::eState::Walk;
-		if (Input::GetKey(eKeyCode::S))
-			mState = PlayerScript::eState::Walk;
 	}
 
 	void PlayerScript::move()
@@ -92,6 +91,15 @@ namespace steve
 		{
 			mState = PlayerScript::eState::SitDown;
 			mAnimator->PlayAnimation(L"SitDown", false);
+		}
+	}
+
+	void PlayerScript::giveWater()
+	{
+		if (mAnimator->IsComplete())
+		{
+			mState = eState::Idle;
+			mAnimator->PlayAnimation(L"Idle", false);
 		}
 	}
 }

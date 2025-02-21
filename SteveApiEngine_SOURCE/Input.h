@@ -7,6 +7,7 @@ namespace steve {
 		A, S, D, F, G, H, J, K, L,
 		Z, X, C, V, B, N, M,
 		Left, Right, Down, Up,
+		LButton, MButton, RButton,
 		End,
 	};
 	enum class eKeyState
@@ -42,6 +43,7 @@ namespace steve {
 		{
 			return Keys[(UINT)code].state == eKeyState::Pressed;
 		}
+		static math::Vector2 GetMousePosition() { return mMousePosition; }
 
 	private:
 		static void createKeys();
@@ -50,9 +52,12 @@ namespace steve {
 		static bool isKeyDown(eKeyCode code);
 		static void updateKeyDown(Input::Key& key);
 		static void updateKeyUp(Input::Key& key);
+		static void getMousePositionByWindow();
+		static void clearKeys();
 
 	private:
 		static std::vector<Key> Keys;
+		static math::Vector2 mMousePosition;
 	};
 
 

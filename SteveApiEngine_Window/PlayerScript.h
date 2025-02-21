@@ -1,5 +1,5 @@
 #pragma once
-#include "../SteveApiEngine_SOURCE/Script.h"
+#include "..\\SteveApiEngine_SOURCE\\Script.h"
 namespace steve
 {
 	class PlayerScript: public Script
@@ -11,6 +11,8 @@ namespace steve
 			Walk,
 			Sleep,
 			Attack,
+			Idle,
+			GiveWater,
 		};
 
 		PlayerScript();
@@ -23,8 +25,10 @@ namespace steve
 
 
 	private:
-		void sitDown();
+		void idle();
 		void move();
+		void giveWater();
+
 	private:
 		eState mState;
 		class Animator* mAnimator;

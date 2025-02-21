@@ -1,6 +1,10 @@
 #include "Input.h"
+#include "App.h"
+
+extern steve::App app;
 namespace steve {
 	std::vector<Input::Key> Input::Keys = {};
+	math::Vector2 Input::mMousePosition = math::Vector2::One;
 
 	int ASCII[(UINT)eKeyCode::End] = {
 		'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P',
@@ -44,14 +48,18 @@ namespace steve {
 
 	void Input::updateKey(Input::Key& key)
 	{
-		// 키가 눌린 상태
-		if (isKeyDown(key.keyCode))
+		if (GetFocus())
 		{
-			updateKeyDown(key);
+			if (isKeyDown(key.keyCode))
+				updateKeyDown(key);
+			else
+				updateKeyUp(key);
+
+			getMousePositionByWindow();
 		}
 		else
 		{
-			updateKeyUp(key);
+			clearKeys();
 		}
 	}
 
@@ -86,5 +94,27 @@ namespace steve {
 		}
 
 		key.bPressed = false;
+	}
+
+	void Input::getMousePositionByWindow()
+	{
+		POINT mousePos = { };
+		GetCursorPos(&mousePos);
+		ScreenToClient(app.GetHwnd(), &mousePos);
+
+		mMousePosition.x = mousePos.x;
+		mMousePosition.y = mousePos.y;
+	}
+	void Input::clearKeys()
+	{
+		for (Key& key : Keys)
+		{
+			if (key.state == eKeyState::Down || key.state == eKeyState::Pressed)
+				key.state = eKeyState::Up;
+			else if (key.state == eKeyState::Up)
+				key.state = eKeyState::None;
+
+			key.bPressed = false;
+		}
 	}
 }

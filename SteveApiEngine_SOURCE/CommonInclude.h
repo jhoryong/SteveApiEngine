@@ -6,7 +6,7 @@
 #include <algorithm>
 #include <string>
 #include <map>
-
+#include <functional>
 #include "steveMath.h"
 
 #include <mmsystem.h>
