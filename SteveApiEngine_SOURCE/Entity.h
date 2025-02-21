@@ -1,5 +1,6 @@
 #pragma once
 #include "CommonInclude.h"
+using namespace steve::math;
 namespace steve
 {
 	class Entity

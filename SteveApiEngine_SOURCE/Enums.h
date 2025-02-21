@@ -17,6 +17,7 @@ namespace steve
 		{
 			Texture,
 			AudioClip,
+			Animation,
 			Prefab,
 			End
 		};
@@ -25,6 +26,7 @@ namespace steve
 		{
 			Transform,
 			SpriteRenderer,
+			Animator,
 			Script,
 			Camera,
 			End,

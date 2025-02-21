@@ -53,6 +53,12 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Entity.cpp">
       <Filter>Common</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Animation.cpp">
+      <Filter>Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Animator.cpp">
+      <Filter>Animation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)App.h" />
@@ -116,6 +122,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Object.h">
       <Filter>Common</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Animation.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Animator.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Component">
@@ -141,6 +153,9 @@
     </Filter>
     <Filter Include="Renderer">
       <UniqueIdentifier>{a2ecc17d-9a2e-4d24-89bf-f29c2caa2c80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Animation">
+      <UniqueIdentifier>{1f0d90bb-2769-4243-ab57-1fff29cd71d1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
