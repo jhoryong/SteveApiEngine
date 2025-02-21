@@ -5,6 +5,14 @@ namespace steve
 	class PlayerScript: public Script
 	{
 	public:
+		enum class eState
+		{
+			SitDown,
+			Walk,
+			Sleep,
+			Attack,
+		};
+
 		PlayerScript();
 		~PlayerScript();
 
@@ -15,6 +23,10 @@ namespace steve
 
 
 	private:
-
+		void sitDown();
+		void move();
+	private:
+		eState mState;
+		class Animator* mAnimator;
 	};
 }

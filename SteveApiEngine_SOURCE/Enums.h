@@ -10,6 +10,7 @@ namespace steve
 			//Tree 
 			//character
 			Player,
+			Particle,
 			Max = 16,
 		};
 

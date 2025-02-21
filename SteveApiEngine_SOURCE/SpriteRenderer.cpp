@@ -36,23 +36,44 @@ namespace steve
 
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
+		float rot = tr->GetRoation();
+		Vector2 scale = tr->GetScale();
+
 		pos = renderer::mainCamera->CalculatePosition(pos);
 
 		if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Bmp)
 		{
 			//https://blog.naver.com/power2845/50147965306
 			TransparentBlt(hdc, pos.x, pos.y
-				, mTexture->GetWidth() * mSize.x, mTexture->GetHeight() * mSize.y
+				, mTexture->GetWidth() * mSize.x * scale.x, mTexture->GetHeight() * mSize.y
 				, mTexture->GetHdc(), 0, 0, mTexture->GetWidth(), mTexture->GetHeight()
 				, RGB(255, 0, 255));
 		}
 		else if (mTexture->GetTextureType()
 			== graphics::Texture::eTextureType::Png)
 		{
-			Gdiplus::Graphics graphcis(hdc);
-			graphcis.DrawImage(mTexture->GetImage()
-				, Gdiplus::Rect(pos.x, pos.y
-					, mTexture->GetWidth() * mSize.x, mTexture->GetHeight() * mSize.y));
+			Gdiplus::ImageAttributes imgAtt = {};
+			imgAtt.SetColorKey(Gdiplus::Color(230, 230, 230), Gdiplus::Color(255, 255, 255));
+			Gdiplus::Graphics graphics(hdc);
+
+			graphics.TranslateTransform(pos.x, pos.y);
+			graphics.RotateTransform(rot);
+			graphics.TranslateTransform(-pos.x, -pos.y);
+
+			auto rect = Gdiplus::Rect(
+				pos.x, pos.y
+				, mTexture->GetWidth() * mSize.x * scale.x
+				, mTexture->GetHeight() * mSize.y * scale.y
+			);
+
+			graphics.DrawImage(
+				mTexture->GetImage(),
+				rect,
+				0, 0,
+				mTexture->GetWidth(), mTexture->GetHeight(),
+				Gdiplus::UnitPixel,
+				nullptr
+			);
 		}
 	}
 }
