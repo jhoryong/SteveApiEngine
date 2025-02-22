@@ -21,8 +21,8 @@ namespace steve
 
 	void Camera::Initialize()
 	{
-		mResolution.x = app.GetWidth();
-		mResolution.y = app.GetHeight();
+		mResolution.x = (float)app.GetWidth();
+		mResolution.y = (float)app.GetHeight();
 	}
 
 	void Camera::Update()
@@ -32,9 +32,11 @@ namespace steve
 			Transform* tr = mTarget->GetComponent<Transform>();
 			mLookPosition = tr->GetPosition();
 		}
-
-		Transform* cameraTr = GetOwner()->GetComponent<Transform>();
-		mLookPosition = cameraTr->GetPosition();
+		else
+		{
+			Transform* cameraTr = GetOwner()->GetComponent<Transform>();
+			mLookPosition = cameraTr->GetPosition();
+		}
 
 		mDistance = mLookPosition - (mResolution / 2.0f);
 	}

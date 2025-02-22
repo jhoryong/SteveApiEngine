@@ -19,7 +19,7 @@
 namespace steve
 {
 
-	PlayScene::PlayScene()
+	PlayScene::PlayScene(): mPlayer(nullptr)
 	{
 	}
 
@@ -35,7 +35,9 @@ namespace steve
 		renderer::mainCamera = cameraComp;
 
 		mPlayer = object::Instantiate<Player>(enums::eLayerType::Particle);
-		mPlayer->AddComponent<PlayerScript>();
+		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
+
+
 
 		graphics::Texture* playerTex = Resources::Find<graphics::Texture>(L"Player");
 		Animator* playerAnimator = mPlayer->AddComponent<Animator>();
@@ -45,6 +47,10 @@ namespace steve
 			, Vector2(0.0f, 2000.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 12, 0.1f);
 		playerAnimator->PlayAnimation(L"Idle", false);
 
+		playerAnimator->GetCompleteEvent(L"FrontGiveWater") = std::bind(&PlayerScript::AttackEffect, plScript);
+
+		//playerAnimator->
+
 		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
 		//mPlayer->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
 
@@ -52,7 +58,7 @@ namespace steve
 		///CAT
 		Cat* cat = object::Instantiate<Cat>(enums::eLayerType::Animal);
 		cat->AddComponent<CatScript>();
-
+		cameraComp->SetTarget(cat);
 		graphics::Texture* catTex = Resources::Find<graphics::Texture>(L"Cat");
 		Animator* catAnimator = cat->AddComponent<Animator>();
 		catAnimator->CreateAnimation(L"DownWalk", catTex

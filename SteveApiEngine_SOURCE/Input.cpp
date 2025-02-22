@@ -103,8 +103,8 @@ namespace steve {
 		GetCursorPos(&mousePos);
 		ScreenToClient(app.GetHwnd(), &mousePos);
 
-		mMousePosition.x = mousePos.x;
-		mMousePosition.y = mousePos.y;
+		mMousePosition.x = (float)mousePos.x;
+		mMousePosition.y = (float)mousePos.y;
 	}
 	void Input::clearKeys()
 	{

@@ -78,15 +78,15 @@ namespace steve
             HDC imgHdc = mTexture->GetHdc();
 
             AlphaBlend(hdc
-                , pos.x - (sprite.size.x / 2.0f)
-                , pos.y - (sprite.size.y / 2.0f)
-                , sprite.size.x * scale.x
-                , sprite.size.y * scale.y
+                , (int)(pos.x - (sprite.size.x / 2.0f))
+                , (int)(pos.y - (sprite.size.y / 2.0f))
+                , (int)(sprite.size.x * scale.x)
+                , (int)(sprite.size.y * scale.y)
                 , imgHdc
-                , sprite.leftTop.x
-                , sprite.leftTop.y
-                , sprite.size.x
-                , sprite.size.y
+                , (int)sprite.leftTop.x
+                , (int)sprite.leftTop.y
+                , (int)sprite.size.x
+                , (int)sprite.size.y
                 , func);
 
         }
@@ -107,15 +107,15 @@ namespace steve
             graphics.DrawImage(mTexture->GetImage()
                 , Gdiplus::Rect
                 (
-                    pos.x - (sprite.size.x / 2.0f)
-                    , pos.y - (sprite.size.y / 2.0f)
-                    , sprite.size.x * scale.x
-                    , sprite.size.y * scale.y
+                    (int)(pos.x - (sprite.size.x / 2.0f))
+                    , (int)(pos.y - (sprite.size.y / 2.0f))
+                    , (int)(sprite.size.x * scale.x)
+                    , (int)(sprite.size.y * scale.y)
                 )
-                , sprite.leftTop.x
-                , sprite.leftTop.y
-                , sprite.size.x
-                , sprite.size.y
+                , (int)sprite.leftTop.x
+                , (int)sprite.leftTop.y
+                , (int)sprite.size.x
+                , (int)sprite.size.y
                 , Gdiplus::UnitPixel
                 , /*&imgAtt*/nullptr
             );

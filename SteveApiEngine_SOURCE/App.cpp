@@ -2,6 +2,8 @@
 #include "Input.h"
 #include "Time.h"
 #include "SceneManager.h"
+#include "Resources.h"
+
 namespace steve
 {
 	App::App()
@@ -49,6 +51,12 @@ namespace steve
 		copyRenderTarget(mBackHdc, mHdc);
 	}
 
+	void App::Release()
+	{
+		SceneManager::Release();
+		Resources::Release();
+	}
+
 	void App::clearRenderTarget()
 	{
 		//clear
@@ -67,7 +75,7 @@ namespace steve
 		mHwnd = hwnd;
 		mHdc = GetDC(hwnd);
 
-		RECT rect = { 0, 0, width, height };
+		RECT rect = { 0, 0, (LONG)width, (LONG)height };
 		AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
 
 		mWidth = rect.right - rect.left;

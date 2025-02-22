@@ -24,6 +24,7 @@ namespace steve
 		void Render(HDC hdc) override;
 
 
+		void AttackEffect();
 	private:
 		void idle();
 		void move();

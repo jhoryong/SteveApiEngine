@@ -6,6 +6,14 @@ steve::Layer::Layer() : mGameObjects{}
 
 steve::Layer::~Layer()
 {
+	for (GameObject* gameObj : mGameObjects)
+	{
+		if (gameObj == nullptr)
+			continue;
+
+		delete gameObj;
+		gameObj = nullptr;
+	}
 }
 
 void steve::Layer::Initialize()

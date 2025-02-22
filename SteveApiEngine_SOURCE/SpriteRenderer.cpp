@@ -44,9 +44,9 @@ namespace steve
 		if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Bmp)
 		{
 			//https://blog.naver.com/power2845/50147965306
-			TransparentBlt(hdc, pos.x, pos.y
-				, mTexture->GetWidth() * mSize.x * scale.x, mTexture->GetHeight() * mSize.y
-				, mTexture->GetHdc(), 0, 0, mTexture->GetWidth(), mTexture->GetHeight()
+			TransparentBlt(hdc, (int)pos.x, (int)pos.y
+				, (int)(mTexture->GetWidth() * mSize.x * scale.x), (int)(mTexture->GetHeight() * mSize.y)
+				, mTexture->GetHdc(), 0, 0, (int)mTexture->GetWidth(), (int)mTexture->GetHeight()
 				, RGB(255, 0, 255));
 		}
 		else if (mTexture->GetTextureType()
@@ -61,9 +61,9 @@ namespace steve
 			graphics.TranslateTransform(-pos.x, -pos.y);
 
 			auto rect = Gdiplus::Rect(
-				pos.x, pos.y
-				, mTexture->GetWidth() * mSize.x * scale.x
-				, mTexture->GetHeight() * mSize.y * scale.y
+				(int)pos.x, (int)pos.y
+				, (int)(mTexture->GetWidth() * mSize.x * scale.x)
+				, (int)(mTexture->GetHeight() * mSize.y * scale.y)
 			);
 
 			graphics.DrawImage(

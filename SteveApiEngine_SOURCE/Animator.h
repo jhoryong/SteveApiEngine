@@ -17,7 +17,7 @@ namespace steve
 			void operator()()
 			{
 				if (mEvent)
-					mEvent;
+					mEvent();
 			}
 
 			std::function<void()> mEvent;
@@ -25,9 +25,9 @@ namespace steve
 
 		struct Events
 		{
-			Event mStartEvent;
-			Event mCompleteEvent;
-			Event mEndEvent;
+			Event startEvent;
+			Event completeEvent;
+			Event endEvent;
 		};
 
 		Animator();
@@ -49,7 +49,11 @@ namespace steve
 		Animation* FindAnimation(const std::wstring& name);
 		void PlayAnimation(const std::wstring& name, bool loop = true);
 		bool IsComplete() { return mActiveAnimation->IsComplete(); }
-		//PlayAnimation(L"move", false);
+
+		Events* FindEvents(const std::wstring& name);
+		std::function<void()>& GetStartEvent(const std::wstring& name);
+		std::function<void()>& GetCompleteEvent(const std::wstring& name);
+		std::function<void()>& GetEndEvent(const std::wstring& name);
 
 	private:
 		std::map<std::wstring, Animation*> mAnimations;
